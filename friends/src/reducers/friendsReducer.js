@@ -1,4 +1,9 @@
-import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAILURE } from "../actions";
+import {
+  FETCH_REQUEST,
+  FETCH_SUCCESS,
+  FETCH_FAILURE,
+  ADD_FRIEND
+} from "../actions";
 
 const initialState = {
   friends: [],
@@ -26,6 +31,11 @@ export const friendsReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         error: action.payload
+      };
+    case ADD_FRIEND:
+      return {
+        ...state,
+        friends: action.payload
       };
     default:
       return state;
